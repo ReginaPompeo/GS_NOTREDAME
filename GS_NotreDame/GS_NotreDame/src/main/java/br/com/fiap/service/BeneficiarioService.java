@@ -31,7 +31,11 @@ public class BeneficiarioService {
                 .orElseThrow(() -> new RuntimeException("Beneficiario não encontrado com o ID"));
 
         existingBeneficiario.setNome(newBeneficiario.getNome());
-        existingBeneficiario.setBeneficiario(newBeneficiario.getBeneficiario());
+        existingBeneficiario.setEmail(newBeneficiario.getEmail());
+        existingBeneficiario.setCpf(newBeneficiario.getCpf());
+        existingBeneficiario.setData(newBeneficiario.getData());
+        existingBeneficiario.setCep(newBeneficiario.getCep());
+        existingBeneficiario.setSenha(newBeneficiario.getSenha());
 
         return existingBeneficiario;
     }
@@ -40,8 +44,5 @@ public class BeneficiarioService {
         beneficiarioRepository.deleteById(id);
     }
 
-    public Beneficiario encontrarBeneficiario(String nome) {
-        return BeneficiarioRepository.encontrarBeneficiario(nome);
-    }
 }
 

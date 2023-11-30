@@ -37,7 +37,6 @@ public class BeneficiarioController {
             return ResponseEntity.ok(BeneficiarioMapper.toDTO(respostaBeneficiario));
         }
 
-
         @PutMapping("/{id}")
         public ResponseEntity<BeneficiarioDTO> atualizarBeneficiario(@PathVariable Long id, @Valid @RequestBody BeneficiarioDTO beneficiarioDTO) {
             Beneficiario respostaBeneficiario = beneficiarioService.atualizarBeneficiario(id, BeneficiarioMapper.toEntity(beneficiarioDTO));

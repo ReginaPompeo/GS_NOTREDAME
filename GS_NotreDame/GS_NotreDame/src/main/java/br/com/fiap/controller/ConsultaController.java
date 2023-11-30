@@ -20,23 +20,24 @@ public class ConsultaController {
         @Autowired
         private ConsultaService consultaService;
 
+        @GetMapping("/{id}")
+        public ResponseEntity<ConsultaDTO> buscarConsulta(@PathVariable Long id) {
+        Consulta consulta = consultaService.buscarConsultaID(id);
+        return ResponseEntity.ok(ConsultaMapper.toDTO(consulta));
+        }
+
+        @GetMapping
+        public ResponseEntity<List<ConsultaDTO>> listarConsulta() {
+        List<ConsultaDTO> listarConsulta = consultaService.procurarConsulta().stream().map(ConsultaMapper::toDTO).toList();
+        return ResponseEntity.ok(listarConsulta);
+        }
+
         @PostMapping
         public ResponseEntity<ConsultaDTO> criarConsulta(@Valid @RequestBody ConsultaDTO consultaDTO) {
             Consulta respostaConsulta = consultaService.criarConsulta(ConsultaMapper.toEntity(consultaDTO));
             return ResponseEntity.ok(ConsultaMapper.toDTO(respostaConsulta));
         }
 
-        @GetMapping
-        public ResponseEntity<List<ConsultaDTO>> listarConsulta() {
-            List<ConsultaDTO> listarConsulta = consultaService.procurarConsulta().stream().map(ConsultaMapper::toDTO).toList();
-            return ResponseEntity.ok(listarConsulta);
-        }
-
-        @GetMapping("/{id}")
-        public ResponseEntity<ConsultaDTO> buscarConsulta(@PathVariable Long id) {
-            Consulta consulta = consultaService.buscarConsultaID(id);
-            return ResponseEntity.ok(ConsultaMapper.toDTO(consulta));
-        }
 
         @PutMapping("/{id}")
         public ResponseEntity<ConsultaDTO> atualizarConsulta(@PathVariable Long id, @Valid @RequestBody ConsultaDTO consultaDTO) {

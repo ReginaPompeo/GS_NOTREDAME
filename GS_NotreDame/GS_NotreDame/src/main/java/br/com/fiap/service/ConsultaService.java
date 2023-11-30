@@ -32,8 +32,8 @@ public class ConsultaService {
         Consulta existingConsulta = consultaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Consulta não encontrada com o ID"));
 
-        existingConsulta.setId(newConsulta.getId());
-        existingConsulta.setConsulta(newConsulta.getConsulta());
+        existingConsulta.setEspecialidade(newConsulta.getEspecialidade());
+        existingConsulta.setData_consulta(newConsulta.getData_consulta());
 
         return existingConsulta;
     }
@@ -42,7 +42,4 @@ public class ConsultaService {
         consultaRepository.deleteById(id);
     }
 
-    public Consulta encontrarConsulta(String Especialidade) {
-        return ConsultaRepository.encontrarConsulta(especialidade);
-    }
 }

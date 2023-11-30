@@ -2,6 +2,7 @@ package br.com.fiap.controller;
 
 import br.com.fiap.controller.dto.ExameDTO;
 import br.com.fiap.entity.Exame;
+import br.com.fiap.service.ExameService;
 import br.com.fiap.service.mapper.ExameMapper;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -19,10 +20,10 @@ public class ExameController {
         @Autowired
         private ExameService exameService;
 
-        @PostMapping
-        public ResponseEntity<ExameDTO> criarExame(@Valid @RequestBody ExameDTO exameDTO) {
-            Exame respostaExame = exameService.criarExame(ExameMapper.toEntity(exameDTO));
-            return ResponseEntity.ok(ExameMapper.toDTO(respostaExame));
+        @GetMapping("/{id}")
+        public ResponseEntity<ExameDTO> buscarExame(@PathVariable Long id) {
+            Exame exame = ExameService.buscarExameID(id);
+            return ResponseEntity.ok(ExameMapper.toDTO(exame));
         }
 
         @GetMapping
@@ -30,11 +31,10 @@ public class ExameController {
             List<ExameDTO> listarExame = exameService.procurarExame().stream().map(ExameMapper::toDTO).toList();
             return ResponseEntity.ok(listarExame);
         }
-
-        @GetMapping("/{id}")
-        public ResponseEntity<ExameDTO> buscarExame(@PathVariable Long id) {
-            Exame exame = ExameService.buscarExameID(id);
-            return ResponseEntity.ok(ExameMapper.toDTO(exame));
+        @PostMapping
+        public ResponseEntity<ExameDTO> criarExame(@Valid @RequestBody ExameDTO exameDTO) {
+            Exame respostaExame = exameService.criarExame(ExameMapper.toEntity(exameDTO));
+            return ResponseEntity.ok(ExameMapper.toDTO(respostaExame));
         }
 
         @PutMapping("/{id}")
