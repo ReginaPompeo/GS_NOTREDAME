@@ -41,7 +41,7 @@ public class PlanoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarPlano(@PathVariable Long id) {
-        PlanoService.deletarPlano(id);
+        planoService.deletarPlano(id);
         return ResponseEntity.noContent().build();
     }
 }

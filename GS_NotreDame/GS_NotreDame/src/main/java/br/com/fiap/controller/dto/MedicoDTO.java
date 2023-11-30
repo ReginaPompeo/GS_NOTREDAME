@@ -11,7 +11,7 @@ public class MedicoDTO {
     @NotNull
     @Min(1)
     @Max(11)
-    private Integer cpf_medico;
+    private String cpf_medico;
     @NotNull
     private Date data_nascimento;
     @NotNull
@@ -29,11 +29,11 @@ public class MedicoDTO {
         this.nome_medico = nome_medico;
     }
 
-    public Integer getCpf_medico() {
+    public String getCpf_medico() {
         return cpf_medico;
     }
 
-    public void setCpf_medico(Integer cpf_medico) {
+    public void setCpf_medico(String cpf_medico) {
         this.cpf_medico = cpf_medico;
     }
 

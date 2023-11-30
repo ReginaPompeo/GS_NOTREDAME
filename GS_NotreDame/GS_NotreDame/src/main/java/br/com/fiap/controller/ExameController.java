@@ -1,6 +1,7 @@
 package br.com.fiap.controller;
 
 import br.com.fiap.controller.dto.ExameDTO;
+import br.com.fiap.entity.Beneficiario;
 import br.com.fiap.entity.Exame;
 import br.com.fiap.service.ExameService;
 import br.com.fiap.service.mapper.ExameMapper;
@@ -22,7 +23,7 @@ public class ExameController {
 
         @GetMapping("/{id}")
         public ResponseEntity<ExameDTO> buscarExame(@PathVariable Long id) {
-            Exame exame = ExameService.buscarExameID(id);
+            Exame exame = exameService.buscarExameID(id);
             return ResponseEntity.ok(ExameMapper.toDTO(exame));
         }
 

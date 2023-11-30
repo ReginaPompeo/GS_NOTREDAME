@@ -15,7 +15,7 @@ public class Funcionario {
     @Column(name = "nome_funcionario")
     private String nome;
     @Column(name = "cpf_funcionario")
-    private Integer cpf_funcionario;
+    private String cpf_funcionario;
     @Column(name = "data_nascimento")
     private Date data_nascimento;
     @Column(name = "cep_funcionario")
@@ -43,11 +43,11 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public Integer getCpf_funcionario() {
+    public String getCpf_funcionario() {
         return cpf_funcionario;
     }
 
-    public void setCpf_funcionario(Integer cpf_funcionario) {
+    public void setCpf_funcionario(String cpf_funcionario) {
         this.cpf_funcionario = cpf_funcionario;
     }
 
@@ -74,4 +74,13 @@ public class Funcionario {
     public void setConsultas(List<Consulta> consultas) {
         this.consultas = consultas;
     }
+
+    public List<Exame> getExames() {
+        return exames;
+    }
+
+    public void setExames(List<Exame> exames) {
+        this.exames = exames;
+    }
 }
+

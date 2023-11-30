@@ -31,11 +31,13 @@ public class FuncionarioService {
                 .orElseThrow(() -> new RuntimeException("Funcionario não encontrado com o ID"));
 
         existingFuncionario.setNome(newFuncionario.getNome());
-        existingFuncionario.
-        return existingBeneficiario;
+        existingFuncionario.setCpf_funcionario(newFuncionario.getCpf_funcionario());
+        existingFuncionario.setData_nascimento(newFuncionario.getData_nascimento());
+        existingFuncionario.setCep_funcionario(newFuncionario.getCep_funcionario());
+        return existingFuncionario;
     }
 
-    public void deletarBeneficiario(Long id) {
-        beneficiarioRepository.deleteById(id);
+    public void deletarFuncionario(Long id) {
+        funcionarioRepository.deleteById(id);
     }
 }

@@ -15,7 +15,7 @@ public class Medico {
     @Column (name = "nome_medico")
     private String nome_medico;
     @Column(name = "cpf_medico")
-    private Integer cpf_medico;
+    private String cpf_medico;
     @Column(name = "data_nascimento")
     private Date data_nascimento;
     @Column(name = "cep_medico")
@@ -42,11 +42,11 @@ public class Medico {
         this.nome_medico = nome_medico;
     }
 
-    public Integer getCpf_medico() {
+    public String getCpf_medico() {
         return cpf_medico;
     }
 
-    public void setCpf_medico(Integer cpf_medico) {
+    public void setCpf_medico(String cpf_medico) {
         this.cpf_medico = cpf_medico;
     }
 

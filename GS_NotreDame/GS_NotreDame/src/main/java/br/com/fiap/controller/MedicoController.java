@@ -3,7 +3,6 @@ package br.com.fiap.controller;
 import br.com.fiap.controller.dto.MedicoDTO;
 import br.com.fiap.entity.Medico;
 import br.com.fiap.service.MedicoService;
-import br.com.fiap.service.mapper.ConsultaMapper;
 import br.com.fiap.service.mapper.MedicoMapper;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -34,14 +33,14 @@ public class MedicoController {
 
     @PostMapping
     public ResponseEntity<MedicoDTO> criarMedico(@Valid @RequestBody MedicoDTO medicoDTO) {
-        Medico respostaMedico = medicoService.criarMedico(MedicoMapper.toEntity(MedicoDTO));
+        Medico respostaMedico = medicoService.criarMedico(MedicoMapper.toEntity(medicoDTO));
         return ResponseEntity.ok(MedicoMapper.toDTO(respostaMedico));
     }
 
 
     @PutMapping("/{id}")
     public ResponseEntity<MedicoDTO> atualizarMedico(@PathVariable Long id, @Valid @RequestBody MedicoDTO medicoDTO) {
-        Medico respostaMedico = medicoService.atualizarMedico(id, ConsultaMapper.toEntity(medicoDTO));
+        Medico respostaMedico = medicoService.atualizarMedico(id, MedicoMapper.toEntity(medicoDTO));
         return ResponseEntity.ok(MedicoMapper.toDTO(respostaMedico));
     }
 

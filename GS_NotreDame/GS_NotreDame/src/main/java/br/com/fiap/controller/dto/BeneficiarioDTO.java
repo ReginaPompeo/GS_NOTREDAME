@@ -13,7 +13,7 @@ public class BeneficiarioDTO {
     @NotNull
     @Min(1)
     @Max(11)
-    private Integer cpf;
+    private String cpf;
     @NotNull
     private Date data;
     @NotNull
@@ -39,11 +39,11 @@ public class BeneficiarioDTO {
         this.email = email;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

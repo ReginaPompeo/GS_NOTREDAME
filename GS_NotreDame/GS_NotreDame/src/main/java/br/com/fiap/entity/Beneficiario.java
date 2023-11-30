@@ -17,7 +17,7 @@ public class Beneficiario {
     @Column(name = "email_beneficiario")
     private String email;
     @Column(name = "cpf_beneficiario")
-    private Integer cpf;
+    private String cpf;
     @Column(name = "data_nascimento")
     private Date data;
     @Column(name = "cep_beneficiario")
@@ -58,11 +58,11 @@ public class Beneficiario {
         this.email = email;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -98,4 +98,19 @@ public class Beneficiario {
         this.consultas = consultas;
     }
 
+    public List<Exame> getExames() {
+        return exames;
+    }
+
+    public void setExames(List<Exame> exames) {
+        this.exames = exames;
+    }
+
+    public Plano getPlano() {
+        return plano;
+    }
+
+    public void setPlano(Plano plano) {
+        this.plano = plano;
+    }
 }

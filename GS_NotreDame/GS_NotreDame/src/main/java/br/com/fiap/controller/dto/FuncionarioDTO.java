@@ -6,12 +6,12 @@ import jakarta.validation.constraints.NotNull;
 import java.sql.Date;
 
 public class FuncionarioDTO {
-   @NotNull
+    @NotNull
     private String nome;
     @NotNull
     @Min(1)
     @Max(11)
-    private Integer cpf_funcionario;
+    private String cpf_funcionario;
     @NotNull
     private Date data_nascimento;
     @NotNull
@@ -27,11 +27,11 @@ public class FuncionarioDTO {
         this.nome = nome;
     }
 
-    public Integer getCpf_funcionario() {
+    public String getCpf_funcionario() {
         return cpf_funcionario;
     }
 
-    public void setCpf_funcionario(Integer cpf_funcionario) {
+    public void setCpf_funcionario(String cpf_funcionario) {
         this.cpf_funcionario = cpf_funcionario;
     }
 
